@@ -1,4 +1,5 @@
 # include <stdio.h>
+# include <string.h>
 
 int main() {
     printf("한 글자를 입력하세요. ");
