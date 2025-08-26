@@ -1,18 +1,34 @@
-{
-    "configurations": [
-        {
-            "name": "C/C++: clang 활성 파일 빌드 및 디버그",
-            "type": "cppdbg",
-            "request": "launch",
-            "program": "${fileDirname}/${fileBasenameNoExtension}",
-            "args": [],
-            "stopAtEntry": false,
-            "cwd": "${fileDirname}",
-            "environment": [],
-            "externalConsole": false,
-            "MIMode": "lldb",
-            "preLaunchTask": "C/C++: clang 활성 파일 빌드"
-        }
-    ],
-    "version": "2.0.0"
+>{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      // macOS에서 사용할 디버깅 설정
+      "name": "Debug (macOS)",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${fileDirname}/${fileBasenameNoExtension}", // .exe 없음
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${fileDirname}",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "lldb", // macOS는 lldb 디버거 사용
+      "preLaunchTask": "Build" // 디버깅 전 'Build' 작업 실행
+    },
+    {
+      // 윈도우에서 사용할 디버깅 설정
+      "name": "Debug (Windows)",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${fileDirname}\\${fileBasenameNoExtension}.exe", // .exe 있음
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${fileDirname}",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "gdb", // MinGW는 gdb 디버거 사용
+      "miDebuggerPath": "C:\\msys64\\ucrt64\\bin\\gdb.exe", // gdb 경로 (설치 위치에 따라 다를 수 있음)
+      "preLaunchTask": "Build" // 디버깅 전 'Build' 작업 실행
+    }
+  ]
 }
