@@ -10,6 +10,7 @@ int main()
     printf("인덱스 종료값은? ");
     scanf("%d", &eval);
 
+    /*
     while (index < eval)
     {
         val += index;
@@ -18,5 +19,13 @@ int main()
 
         index += 2;
     }
+    */
+
+    for (;index < eval; index += 2)
+    {
+        val += index;
+        printf(" %-5d %3d\n", val, index);
+    }
     
+    return 0;
 }
