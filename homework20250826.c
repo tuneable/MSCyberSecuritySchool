@@ -4,7 +4,7 @@
 char c;
 char str[20] = "";
 
-char separator(char ch) {
+char* separator(char ch) {
     if(ch >= '0' && ch <= '9') {
         strcpy(str, "숫자");
     } else if (ch >= 'a' && ch <= 'z') {
@@ -17,14 +17,10 @@ char separator(char ch) {
     return str;
 }
 
-
-
 int main() {
-    printf("한 글자를 입력하세요. ");
-    
-
+    printf(">");
     scanf("%c", &c);
     separator(c);
-    printf("입력하신 글자는 %s입니다.\n", str);
+    printf(">%c: %s\n", c, str);
     return 0;
 }
