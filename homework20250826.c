@@ -18,9 +18,11 @@ char* separator(char ch) {
 }
 
 int main() {
-    printf(">");
+    printf("한 글자를 입력하세요. ");
+    
+
     scanf("%c", &c);
     separator(c);
-    printf(">%c: %s\n", c, str);
+    printf("입력하신 글자는 %s입니다.\n", str);
     return 0;
 }

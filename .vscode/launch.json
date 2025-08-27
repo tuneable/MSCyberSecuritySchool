@@ -2,33 +2,46 @@
   "version": "0.2.0",
   "configurations": [
     {
-      // macOS에서 사용할 디버깅 설정
-      "name": "Debug (macOS)",
-      "type": "cppdbg",
+      "name": "Debug C (Windows)",
+      "type": "cppvsdbg",
       "request": "launch",
-      "program": "${fileDirname}/${fileBasenameNoExtension}", // .exe 없음
+      "program": "${fileDirname}\\a.exe",
       "args": [],
       "stopAtEntry": false,
       "cwd": "${fileDirname}",
-      "environment": [],
-      "externalConsole": false,
-      "MIMode": "lldb", // macOS는 lldb 디버거 사용
-      "preLaunchTask": "Build" // 디버깅 전 'Build' 작업 실행
+      "console": "integratedTerminal",
+      "preLaunchTask": "build C program"
     },
     {
-      // 윈도우에서 사용할 디버깅 설정
-      "name": "Debug (Windows)",
+      "name": "Debug C (Linux)",
       "type": "cppdbg",
       "request": "launch",
-      "program": "${fileDirname}\\${fileBasenameNoExtension}.exe", // .exe 있음
+      "program": "${fileDirname}/a.out",
       "args": [],
       "stopAtEntry": false,
       "cwd": "${fileDirname}",
-      "environment": [],
+      "MIMode": "gdb",
+      "miDebuggerPath": "/usr/bin/gdb",
       "externalConsole": false,
-      "MIMode": "gdb", // MinGW는 gdb 디버거 사용
-      "miDebuggerPath": "C:\\msys64\\ucrt64\\bin\\gdb.exe", // gdb 경로 (설치 위치에 따라 다를 수 있음)
-      "preLaunchTask": "Build" // 디버깅 전 'Build' 작업 실행
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ],
+      "preLaunchTask": "build C program"
+    },
+    {
+      "name": "Debug C (macOS, CodeLLDB)",
+      "type": "lldb",
+      "request": "launch",
+      "program": "${fileDirname}/a.out",
+      "args": [],
+      "cwd": "${fileDirname}",
+      "preLaunchTask": "build C program",
+      "stopAtEntry": false,
+      "console": "integratedTerminal"
     }
   ]
 }
