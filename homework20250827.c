@@ -26,7 +26,7 @@ int main() {
     
     int min = findmin(inputnum);  // 함수 리턴값을 저장
 
-    printf("입력하신 값 중에서 최소값은 %d입니다.", min);
+    printf("입력하신 값 중에서 최소값은 %d입니다.\n", min);
     
     return 0;
 }
